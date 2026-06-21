@@ -18,9 +18,6 @@ COPY requirements.txt .
 # для установки зависимостей.
 RUN pip install -r requirements.txt --no-cache-dir
 
-# Скопировать всё необходимое содержимое 
-# той директории локального компьютера, где сохранён Dockerfile,
-# в текущую рабочую директорию образа — /app.
 COPY . .
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "backend.wsgi"]
